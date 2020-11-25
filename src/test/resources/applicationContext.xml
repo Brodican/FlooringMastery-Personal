@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/mvc
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/aop  
+          http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!-- Bean definitions go here -->
+    
+    <!-- Bean for UserIO -->
+    <bean id="userIO" class="mthree.flooringmastery.ui.UserIOConsoleImpl"/>
+
+    <!-- Bean for View, UserIO bean passed to constructor -->
+    <bean id="view" class="mthree.flooringmastery.ui.FlooringMasteryView">
+        <constructor-arg ref="userIO"/>
+    </bean>
+    
+
+    
+    <!-- Bean for Order DAO stub for Service Layer test -->
+    <bean id="flooringMasteryOrderDaoStub" 
+         class="mthree.flooringmastery.service.FlooringMasteryOrderDaoStubImpl"/>
+    
+    <!-- Bean for Product DAO stub for Service Layer test -->
+    <bean id="flooringMasteryProductDaoStub" 
+         class="mthree.flooringmastery.service.FlooringMasteryProductDaoStubImpl"/>
+    
+    <!-- Bean for State DAO stub for Service Layer test -->
+    <bean id="flooringMasteryStateDaoStub" 
+         class="mthree.flooringmastery.service.FlooringMasteryStateDaoStubImpl"/>
+    
+    <!-- Bean for Audit DAO stub for Service Layer test -->
+    <bean id="flooringMasteryAuditDaoStub" 
+         class="mthree.flooringmastery.service.FlooringMasteryAuditDaoStubImpl"/>
+         
+    <!-- Bean for Service Layer Test, DAO, Product DAO, State DAO and Audit DAO stub beans passed to constructor -->
+    <bean id="serviceLayer" 
+         class="mthree.flooringmastery.service.FlooringMasteryServiceLayerFileImpl">
+        <constructor-arg ref="flooringMasteryOrderDaoStub"/>
+        <constructor-arg ref="flooringMasteryProductDaoStub"/>
+        <constructor-arg ref="flooringMasteryStateDaoStub"/>   
+        <constructor-arg ref="flooringMasteryAuditDaoStub"/>   
+    </bean>
+   
+</beans>

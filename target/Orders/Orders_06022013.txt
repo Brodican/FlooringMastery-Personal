@@ -1,0 +1,3 @@
+OrderNumber,CustomerName,CreationDate,Status,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+3,Ada Lovelace,2014-04-28T16:00:49,ACTIVE,CA,25.00,Tile,249.00,3.50,4.15,871.50,1033.35,476.21,2381.06
+4,Ada Lovelace,2014-04-28T16:00:49,ACTIVE,CA,25.00,Tile,249.00,3.50,4.15,871.50,1033.35,476.21,2381.06

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/mvc
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/aop  
+          http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!-- Bean definitions go here -->
+    
+    <!-- Bean for UserIO -->
+    <bean id="userIO" class="mthree.flooringmastery.ui.UserIOConsoleImpl"/>
+
+    <!-- Bean for View, UserIO bean passed to constructor -->
+    <bean id="view" class="mthree.flooringmastery.ui.FlooringMasteryView">
+        <constructor-arg ref="userIO"/>
+    </bean>
+    
+    <!-- Bean for Order DAO -->
+    <bean id="orderDao" 
+         class="mthree.flooringmastery.dao.FlooringMasteryOrderDaoFileImpl"/>
+    
+    <!-- Bean for Product DAO -->
+    <bean id="productDao" 
+         class="mthree.flooringmastery.dao.FlooringMasteryProductDaoFileImpl"/>
+    
+    <!-- Bean for State DAO -->
+    <bean id="stateDao" 
+         class="mthree.flooringmastery.dao.FlooringMasteryStateDaoFileImpl"/>
+    
+    <!-- Bean for Audit DAO -->
+    <bean id="auditDao" 
+         class="mthree.flooringmastery.dao.FlooringMasteryAuditDaoFileImpl"/>
+         
+    <!-- Bean for Service Layer, DAO and Audit DAO beans passed to constructor -->
+    <bean id="serviceLayer" 
+         class="mthree.flooringmastery.service.FlooringMasteryServiceLayerFileImpl">
+        <constructor-arg ref="orderDao"/>
+        <constructor-arg ref="productDao"/>
+        <constructor-arg ref="stateDao"/>   
+        <constructor-arg ref="auditDao"/>   
+    </bean>
+
+    <!-- Bean for Controller, Service Layer and View passed to Constructor -->
+    <bean id="controller" 
+         class="mthree.flooringmastery.controller.FlooringMasteryController">
+        <constructor-arg ref="serviceLayer"/>
+        <constructor-arg ref="view"/>
+    </bean>
+   
+</beans>

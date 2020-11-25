@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,CreationDate,Status,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+9,Jimothy,2020-06-27T07:42:43,ACTIVE,TX,4.45,Tile,250,3.50,4.15,875.00,1037.50,85.11,1997.61

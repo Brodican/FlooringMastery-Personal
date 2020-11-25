@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,CreationDate,Status,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+7,Utkua,2020-06-26T16:54:52.298535900,ACTIVE,TX,4.45,Carpet,160,2.25,2.10,360.00,336.00,30.97,726.97

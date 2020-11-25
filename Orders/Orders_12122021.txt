@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,CreationDate,Status,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+10,Jimothing,2020-06-27T09:40:47,ACTIVE,TX,4.45,Tile,3000000,3.50,4.15,10500000.00,12450000.00,1021275.00,23971275.00
